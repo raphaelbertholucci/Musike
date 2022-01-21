@@ -6,6 +6,19 @@ plugins {
 }
 
 android {
+    defaultConfig {
+        applicationId = Releases.applicationId
+        versionCode = Releases.versionCode
+        versionName = Releases.versionName
+
+        compileSdk = Config.compileSdkVersion
+        minSdk = Config.minSdkVersion
+        targetSdk = Config.targetSdkVersion
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        setProperty("archivesBaseName", "${parent?.name?.capitalize()}-$versionName")
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = true

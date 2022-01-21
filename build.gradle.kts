@@ -1,7 +1,12 @@
+import com.android.build.api.dsl.LibraryExtension
 import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 buildscript {
+//    val properties = java.util.Properties()
+//    file("credentials.properties").withInputStream { properties.load(it) }
+//    ext.apiKey = properties.getProperty('api.key')
+
     repositories {
         google()
         mavenCentral()
@@ -23,28 +28,6 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-    }
-
-    afterEvaluate {
-        if (this.hasProperty("android")) {
-            configure<BaseAppModuleExtension> {
-                compileSdkVersion = Config.compileSdkVersion.toString()
-                buildToolsVersion = Config.buildTools
-
-                defaultConfig {
-                    applicationId = Releases.applicationId
-                    versionCode = Releases.versionCode
-                    versionName = Releases.versionName
-
-                    compileSdk = Config.compileSdkVersion
-                    minSdk = Config.minSdkVersion
-                    targetSdk = Config.targetSdkVersion
-                    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
-                    setProperty("archivesBaseName", "${parent?.name?.capitalize()}-$versionName")
-                }
-            }
-        }
     }
 }
 

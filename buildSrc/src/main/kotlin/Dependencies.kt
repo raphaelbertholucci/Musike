@@ -1,0 +1,62 @@
+object AndroidDependencies {
+    val gradle by lazy { "com.android.tools.build:gradle:${AndroidVersions.gradle}" }
+    val kotlin by lazy { "org.jetbrains.kotlin:kotlin-gradle-plugin:${AndroidVersions.kotlin}" }
+    val googleServices by lazy { "com.google.gms:google-services:${AndroidVersions.google_services}" }
+    val navigationSafeArgs by lazy {
+        "androidx.navigation:navigation-safe-args-gradle-plugin:${AndroidVersions.navigation_safe_args}"
+    }
+    val firebasePerf by lazy { "com.google.firebase:perf-plugin:${AndroidVersions.firebase_perf}" }
+    val dependencyUpdate by lazy { "com.github.ben-manes:gradle-versions-plugin:${AndroidVersions.dependency_updates}" }
+}
+
+object SupportDependencies {
+    val core by lazy { "androidx.core:core-ktx:${SupportVersions.core_version}" }
+    val material by lazy { "com.google.android.material:material:${SupportVersions.material_version}" }
+    val app_compat by lazy { "androidx.appcompat:appcompat:${SupportVersions.app_compat_version}" }
+    val recycler_view by lazy { "androidx.recyclerview:recyclerview:${SupportVersions.recycler_view_version}" }
+    val constraint by lazy { "androidx.constraintlayout:constraintlayout:${SupportVersions.constraint_version}" }
+    val lifecycle by lazy { "androidx.lifecycle:lifecycle-viewmodel-ktx:${SupportVersions.lifecycle_version}" }
+    val live_data by lazy { "androidx.lifecycle:lifecycle-livedata-ktx:${SupportVersions.lifecycle_version}" }
+    val navigation by lazy { "androidx.navigation:navigation-ui-ktx:${SupportVersions.navigation_version}" }
+    val navigation_fragment by lazy { "androidx.navigation:navigation-fragment-ktx:${SupportVersions.navigation_version}" }
+    val coil by lazy { "io.coil-kt:coil:${SupportVersions.coil_version}" }
+    val lottie by lazy { "com.airbnb.android:lottie:${SupportVersions.lottie_version}" }
+}
+
+object NetworkDependencies {
+    val retrofit by lazy { "com.squareup.retrofit2:retrofit:${NetworkVersions.retrofit_version}" }
+    val okhttp by lazy { "com.squareup.okhttp3:logging-interceptor:${NetworkVersions.okHttp_interceptor_version}" }
+    val gson by lazy { "com.google.code.gson:gson:${NetworkVersions.gson_version}" }
+    val gson_converter by lazy { "com.squareup.retrofit2:converter-gson:${NetworkVersions.gson_converter_version}" }
+}
+
+object DependencyInjectionDependencies {
+    val koin by lazy { "io.insert-koin:koin-android:${DependencyInjectionVersions.koin_version}" }
+    val koin_core by lazy { "io.insert-koin:koin-core:${DependencyInjectionVersions.koin_version}" }
+}
+
+object DatabaseDependencies {
+    val room by lazy { "androidx.room:room-runtime:${DatabaseVersions.room_version}" }
+    val room_ktx by lazy { "androidx.room:room-ktx:${DatabaseVersions.room_version}" }
+}
+
+object PreferencesDependencies {
+    val datastore by lazy { "androidx.security:security-crypto:${PreferencesVersions.datastore_version}" }
+    val secure_shared_preferences by lazy { "androidx.datastore:datastore-preferences:${PreferencesVersions.secure_shared_preferences_version}" }
+}
+
+object AsyncDependencies {
+    val coroutines by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-core:${AsyncVersions.coroutines_version}" }
+    val coroutines_android by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${AsyncVersions.coroutines_version}" }
+}
+
+object TestDependencies {
+    val junit by lazy { "junit:junit:${TestVersions.junit}" }
+    val junit_instrumentation by lazy { "androidx.test.ext:junit:${TestVersions.junit_instrumentation}" }
+    val espresso by lazy { "androidx.test.espresso:espresso-core:${TestVersions.espresso}" }
+    val mockk by lazy { "io.mockk:mockk:${TestVersions.mockk}" }
+    val mockk_android by lazy { "io.mockk:mockk-android:${TestVersions.mockk}" }
+    val coroutines_test by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${TestVersions.coroutines_test}" }
+    val arch by lazy { "androidx.arch.core:core-testing:${TestVersions.arch}" }
+    val test_core by lazy { "androidx.test:core:${TestVersions.test_core}" }
+}

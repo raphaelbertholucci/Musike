@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search_example">Search for songs…</string>
+    <string name="tracks_loaded">Tracks loaded!</string>
+</resources>

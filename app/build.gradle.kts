@@ -39,17 +39,14 @@ android {
 }
 
 dependencies {
-    implementation(SupportDependencies.core)
-    implementation(SupportDependencies.material)
-    implementation(SupportDependencies.app_compat)
-    implementation(SupportDependencies.recycler_view)
-    implementation(SupportDependencies.constraint)
+    implementation(project(":common"))
+    implementation(project(":data"))
+    implementation(project(":feature:search"))
+
     implementation(SupportDependencies.lifecycle)
-    implementation(SupportDependencies.live_data)
-    implementation(SupportDependencies.navigation)
-    implementation(SupportDependencies.navigation_fragment)
-    implementation(SupportDependencies.coil)
     implementation(SupportDependencies.lottie)
+    implementation(DependencyInjectionDependencies.koin)
+    implementation(DependencyInjectionDependencies.koin_core)
 
     api(TestDependencies.espresso)
     androidTestImplementation(TestDependencies.junit_instrumentation)

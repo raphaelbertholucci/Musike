@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="Theme.Musike" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:statusBarColor">@color/color_dark_blue</item>
+        <item name="android:windowBackground">@color/color_dark_blue</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Body">
+        <item name="android:fontFamily">@font/montserrat_semibold</item>
+        <item name="android:textSize">@dimen/extra_small_text</item>
+        <item name="android:textColor">@color/color_white_alpha</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+</resources>

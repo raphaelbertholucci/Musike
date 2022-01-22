@@ -13,27 +13,27 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
-        val baseUrl = "\"http://ws.audioscrobbler.com/\""
-        val apiKey = "\"3ea37c98f103a08151caf70424f6c08e\""
-        all {
-            buildConfigField("String", "API_KEY", apiKey)
-            buildConfigField("String", "BASE_URL", baseUrl)
-        }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
 dependencies {
-    implementation(NetworkDependencies.retrofit)
-    implementation(NetworkDependencies.okhttp)
-    implementation(NetworkDependencies.gson)
-    implementation(NetworkDependencies.gson_converter)
-    implementation(DatabaseDependencies.room)
-    implementation(DatabaseDependencies.room_ktx)
+    implementation(project(":common"))
+    implementation(project(":domain"))
+
+    implementation(SupportDependencies.core)
+    implementation(SupportDependencies.material)
+    implementation(SupportDependencies.app_compat)
+    implementation(SupportDependencies.recycler_view)
+    implementation(SupportDependencies.constraint)
+    implementation(SupportDependencies.lifecycle)
+    implementation(SupportDependencies.live_data)
+    implementation(SupportDependencies.navigation)
+    implementation(SupportDependencies.navigation_fragment)
+    implementation(SupportDependencies.coil)
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
-    implementation(PreferencesDependencies.datastore)
-    implementation(PreferencesDependencies.secure_shared_preferences)
 
     api(TestDependencies.espresso)
     androidTestImplementation(TestDependencies.junit_instrumentation)

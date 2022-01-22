@@ -18,7 +18,18 @@
         <item name="android:fontFamily">@font/montserrat_semibold</item>
         <item name="android:textSize">@dimen/extra_small_text</item>
         <item name="android:textColor">@color/color_white_alpha</item>
+    </style>
+
+    <style name="Body.SingleLine">
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="Body.Medium">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
+    <style name="Shimmer">
+        <item name="android:background">@drawable/common_bg_shimmer_rounded_4</item>
     </style>
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_marginBottom="@dimen/default_margin"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/view_image"
+        style="@style/Shimmer"
+        android:layout_width="@dimen/music_image_size"
+        android:layout_height="@dimen/music_image_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_title"
+        style="@style/Shimmer"
+        android:layout_width="200dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintBottom_toTopOf="@id/view_artist"
+        app:layout_constraintStart_toEndOf="@id/view_image"
+        app:layout_constraintTop_toTopOf="@id/view_image"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <View
+        android:id="@+id/view_artist"
+        style="@style/Shimmer"
+        android:layout_width="150dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="@dimen/little_margin"
+        app:layout_constraintBottom_toBottomOf="@id/view_image"
+        app:layout_constraintStart_toStartOf="@id/view_title"
+        app:layout_constraintTop_toBottomOf="@id/view_title"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

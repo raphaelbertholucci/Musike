@@ -6,8 +6,11 @@ import retrofit2.http.Query
 
 interface MusikeApi {
     @GET("/2.0/")
-    suspend fun searchRestaurants(
+    suspend fun getTracksByName(
         @Query("method") method: String,
-        @Query("track") track: String
+        @Query("format") format: String,
+        @Query("limit") limit: String,
+        @Query("track") track: String,
+        @Query("page") page: Int
     ): MusicResults
 }

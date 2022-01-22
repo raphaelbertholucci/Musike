@@ -49,7 +49,7 @@ abstract class BaseDialogFragment<T : ViewBinding> : DialogFragment() {
             dialog.window?.setBackgroundDrawable(
                 ContextCompat.getDrawable(
                     this,
-                    R.drawable.bg_dialog_rounded
+                    R.drawable.common_bg_dialog_rounded
                 )
             )
         }

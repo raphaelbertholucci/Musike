@@ -5,7 +5,8 @@
     <application>
         <activity
             android:name=".ui.SearchActivity"
-            android:exported="false">
+            android:exported="false"
+            android:windowSoftInputMode="adjustNothing">
             <intent-filter>
                 <action android:name="${applicationId}.SEARCH" />
                 <category android:name="android.intent.category.DEFAULT" />

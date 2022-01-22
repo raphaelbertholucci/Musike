@@ -15,11 +15,13 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewTypeItem = 0
     private val viewTypeLoading = 1
 
-    val list: MutableList<Music> = mutableListOf()
+    private val list: MutableList<Music> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(tracks: List<Music>) {
-        list.clear()
+    fun updateList(tracks: List<Music>, page: Int) {
+        if (page == 0) {
+            list.clear()
+        }
         list.addAll(tracks)
         notifyDataSetChanged()
     }
@@ -39,10 +41,9 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (holder is SearchViewHolder) {
-            holder.bind(list[position])
-        } else if (holder is LoadingViewHolder) {
-            holder.bind(isFullyLoaded)
+        when {
+            (holder is SearchViewHolder) -> holder.bind(list[position])
+            (holder is LoadingViewHolder) -> holder.bind(isFullyLoaded)
         }
     }
 

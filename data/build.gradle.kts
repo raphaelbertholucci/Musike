@@ -24,6 +24,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":common"))
+    implementation(project(":domain"))
+
     implementation(NetworkDependencies.retrofit)
     implementation(NetworkDependencies.okhttp)
     implementation(NetworkDependencies.gson)

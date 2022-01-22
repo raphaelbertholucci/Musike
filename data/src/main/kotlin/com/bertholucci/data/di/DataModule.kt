@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.*
 import java.util.concurrent.TimeUnit
 
-const val apiKey = "key"
+const val apiKey = "api_key"
 const val CONN_TIMEOUT_SEC = 60L
 const val HEADER_STALE = 60 * 60 * 24
 

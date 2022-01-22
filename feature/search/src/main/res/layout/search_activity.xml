@@ -24,7 +24,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
-        android:background="@drawable/bg_white_stroke"
+        android:background="@drawable/common_bg_white_stroke"
         android:hint="@string/search_example"
         android:padding="@dimen/default_margin"
         android:textColor="@color/color_white"
@@ -34,14 +34,52 @@
         app:layout_constraintStart_toStartOf="@id/guide_start"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_hint"
+        style="@style/Body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/little_margin"
+        android:text="@string/search_label_hint"
+        app:layout_constraintStart_toStartOf="@id/et_search"
+        app:layout_constraintTop_toBottomOf="@id/et_search" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tracks"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/default_margin"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintTop_toBottomOf="@id/et_search"
+        app:layout_constraintTop_toBottomOf="@id/tv_hint"
         tools:itemCount="4"
         tools:listitem="@layout/search_item_music" />
+
+    <include
+        android:id="@+id/loading"
+        layout="@layout/search_loading"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintStart_toStartOf="@id/guide_start"
+        app:layout_constraintTop_toTopOf="@id/rv_tracks" />
+
+    <include
+        android:id="@+id/error"
+        layout="@layout/search_error"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rv_tracks" />
+
+    <include
+        android:id="@+id/empty"
+        layout="@layout/search_empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rv_tracks" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

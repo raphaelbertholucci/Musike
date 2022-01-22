@@ -17,6 +17,7 @@ object SupportVersions {
     const val navigation_version = "2.3.5"
     const val coil_version = "1.4.0"
     const val lottie_version = "4.2.0"
+    const val shimmer_version = "0.5.0"
 }
 
 object NetworkVersions {

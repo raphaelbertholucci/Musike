@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="search_example">Search for songs…</string>
-    <string name="tracks_loaded">Tracks loaded!</string>
+    <string name="search_tracks_loaded">Tracks loaded!</string>
+    <string name="search_label_hint">Type at least 3 words to begin the search</string>
+    <string name="search_empty">Sorry!\nWe didn\'t found any results for this track</string>
 </resources>

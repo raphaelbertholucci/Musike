@@ -21,6 +21,7 @@ object SupportDependencies {
     val navigation_fragment by lazy { "androidx.navigation:navigation-fragment-ktx:${SupportVersions.navigation_version}" }
     val coil by lazy { "io.coil-kt:coil:${SupportVersions.coil_version}" }
     val lottie by lazy { "com.airbnb.android:lottie:${SupportVersions.lottie_version}" }
+    val shimmer by lazy { "com.facebook.shimmer:shimmer:${SupportVersions.shimmer_version}" }
 }
 
 object NetworkDependencies {

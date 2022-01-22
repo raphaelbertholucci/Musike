@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 class MusicResults(@SerializedName("results") val results: MusicMatches)
 
-class MusicMatches(@SerializedName("trackmatches") val matches: MusicMatches)
+class MusicMatches(@SerializedName("trackmatches") val matches: MusicTracks)
 
 class MusicTracks(@SerializedName("track") val tracks: List<MusicResponse>)
 

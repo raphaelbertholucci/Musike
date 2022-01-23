@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="common_error_generic">Oops! Something went wrong!\nPlease, try again later.</string>
+    <string name="common_error_internet">Oops! Your internet appears to be offline…\nPlease, verify you connection and try again later.</string>
 </resources>

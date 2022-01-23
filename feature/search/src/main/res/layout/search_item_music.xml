@@ -26,10 +26,11 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_title"
         style="@style/Title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginHorizontal="@dimen/default_margin"
         app:layout_constraintBottom_toTopOf="@id/tv_artist"
+        app:layout_constraintEnd_toEndOf="@id/barrier"
         app:layout_constraintStart_toEndOf="@id/cv_music"
         app:layout_constraintTop_toTopOf="@id/cv_music"
         app:layout_constraintVertical_chainStyle="packed"
@@ -38,13 +39,43 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_artist"
         style="@style/Body.SingleLine"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginHorizontal="@dimen/default_margin"
         android:layout_marginTop="@dimen/little_margin"
         app:layout_constraintBottom_toBottomOf="@id/cv_music"
+        app:layout_constraintEnd_toEndOf="@id/barrier"
         app:layout_constraintStart_toEndOf="@id/cv_music"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
         tools:text="Believer" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:constraint_referenced_ids="tv_listeners_label,tv_listeners" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_listeners_label"
+        style="@style/Body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search_listeners"
+        app:layout_constraintBottom_toTopOf="@id/tv_listeners"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cv_music"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_listeners"
+        style="@style/Title.Yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tiny_margin"
+        app:layout_constraintBottom_toBottomOf="@id/cv_music"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_listeners_label"
+        tools:text="12343333" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

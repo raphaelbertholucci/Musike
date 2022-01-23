@@ -2,6 +2,12 @@
 <resources>
     <string name="search_example">Search for songs…</string>
     <string name="search_tracks_loaded">Tracks loaded!</string>
-    <string name="search_label_hint">Type at least 3 words to begin the search</string>
+    <string name="search_label_hint">Type at least 3 words\nto begin the search</string>
     <string name="search_empty">Sorry!\nWe didn\'t found any results for this track</string>
+    <string name="search_popularity">Popularity</string>
+    <string name="search_sort_popularity_by">Sort popularity by:</string>
+    <string name="search_crescent">Crescent</string>
+    <string name="search_descending">Descending</string>
+    <string name="search_none">None</string>
+    <string name="search_listeners">Listeners</string>
 </resources>

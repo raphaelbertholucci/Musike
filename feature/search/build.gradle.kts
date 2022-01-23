@@ -33,6 +33,7 @@ dependencies {
     implementation(SupportDependencies.navigation_fragment)
     implementation(SupportDependencies.coil)
     implementation(SupportDependencies.shimmer)
+    implementation(SupportDependencies.swipe_refresh)
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
 

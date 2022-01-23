@@ -44,19 +44,40 @@
         app:layout_constraintStart_toStartOf="@id/et_search"
         app:layout_constraintTop_toBottomOf="@id/et_search" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_tracks"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_sort"
+        style="@style/Body.Blue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/common_bg_button_rounded"
+        android:paddingHorizontal="@dimen/short_margin"
+        android:paddingVertical="@dimen/tiny_margin"
+        android:text="@string/search_popularity"
+        app:layout_constraintBottom_toBottomOf="@id/tv_hint"
+        app:layout_constraintEnd_toEndOf="@id/guide_end"
+        app:layout_constraintTop_toTopOf="@id/tv_hint" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="@dimen/default_margin"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:backgroundTint="@color/color_dark_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"
         app:layout_constraintStart_toStartOf="@id/guide_start"
-        app:layout_constraintTop_toBottomOf="@id/tv_hint"
-        tools:itemCount="4"
-        tools:listitem="@layout/search_item_music" />
+        app:layout_constraintTop_toBottomOf="@id/tv_hint">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_tracks"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/search_item_music" />
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <include
         android:id="@+id/loading"

@@ -17,7 +17,7 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val list: MutableList<Music> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(tracks: List<Music>, page: Int) {
+    fun updateList(tracks: List<Music>, page: Int?) {
         if (page == 0) {
             list.clear()
         }

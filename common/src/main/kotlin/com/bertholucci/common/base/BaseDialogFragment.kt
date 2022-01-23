@@ -2,18 +2,14 @@ package com.bertholucci.common.base
 
 import android.app.Dialog
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewbinding.ViewBinding
 import com.bertholucci.common.R
-
-private const val width_scale = 0.90F
 
 abstract class BaseDialogFragment<T : ViewBinding> : DialogFragment() {
 
@@ -23,16 +19,9 @@ abstract class BaseDialogFragment<T : ViewBinding> : DialogFragment() {
 
     abstract fun getViewBinding(): T
 
-    override fun onResume() {
-        super.onResume()
-        val dialog = dialog
-        val metrics = DisplayMetrics()
-        if (dialog != null) {
-            dialog.window!!.setLayout(
-                (metrics.widthPixels * width_scale).toInt(),
-                ConstraintLayout.LayoutParams.WRAP_CONTENT
-            )
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NO_TITLE, R.style.AppTheme_Dialog_MusikeTheme)
     }
 
     override fun onCreateView(

@@ -8,7 +8,9 @@ import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bertholucci.common.base.BaseActivity
 import com.bertholucci.common.helpers.EndlessScrollListener
+import com.bertholucci.common.helpers.NetworkHelper.hasConnection
 import com.bertholucci.common.helpers.fold
+import com.bertholucci.search.R
 import com.bertholucci.search.databinding.SearchActivityBinding
 import com.bertholucci.search.model.Music
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -31,6 +33,7 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
 
     private fun addObservers() {
         viewModel.tracks.observe(this) { response ->
+            binding.swipe.isRefreshing = false
             response.fold(
                 error = ::handleError,
                 loading = ::handleLoading,
@@ -53,7 +56,7 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
                 display(content = true)
             }
         }
-        adapter.updateList(list, viewModel.page)
+        adapter.updateList(list, viewModel.page.value)
     }
 
     private fun setupUIWithEmptyList() {
@@ -71,7 +74,10 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
 
     private fun handleError(throwable: Throwable) {
         Log.i("ERROR", throwable.message, throwable)
+        if (hasConnection(this).not())
+            binding.error.tvError.setText(R.string.common_error_internet)
         display(error = true)
+        binding.rvTracks.smoothScrollToPosition(0)
     }
 
     private fun display(
@@ -88,12 +94,26 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
 
     private fun addListeners() {
         binding.etSearch.addTextChangedListener {
-            it?.let { text ->
-                if (text.length > 3) {
-                    viewModel.getTracksByName(text.toString())
-                    listener.reset()
-                }
-            }
+            it?.let { text -> searchTrack(text.toString()) }
+        }
+
+        binding.swipe.setOnRefreshListener {
+            searchTrack(binding.etSearch.text.toString())
+        }
+
+        binding.tvSort.setOnClickListener {
+            SearchPopularityDialog(onSelectOption = { isCrescent ->
+                viewModel.updatePopularityChoice(isCrescent)
+            }).show(supportFragmentManager, "POPULARITY_DIALOG")
+        }
+    }
+
+    private fun searchTrack(text: String) {
+        if (text.length >= 3) {
+            viewModel.getTracksByName(text)
+            listener.reset()
+        } else {
+            binding.swipe.isRefreshing = false
         }
     }
 

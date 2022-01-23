@@ -14,6 +14,10 @@
         <item name="android:ellipsize">end</item>
     </style>
 
+    <style name="Title.Yellow">
+        <item name="android:textColor">@color/color_yellow</item>
+    </style>
+
     <style name="Body">
         <item name="android:fontFamily">@font/montserrat_semibold</item>
         <item name="android:textSize">@dimen/extra_small_text</item>
@@ -29,7 +33,21 @@
         <item name="android:textSize">@dimen/small_text</item>
     </style>
 
+    <style name="Body.Blue">
+        <item name="android:textColor">@color/color_dark_blue</item>
+    </style>
+
+    <style name="Body.Blue.Medium">
+        <item name="android:textSize">@dimen/small_text</item>
+    </style>
+
     <style name="Shimmer">
         <item name="android:background">@drawable/common_bg_shimmer_rounded_4</item>
+    </style>
+
+    <style name="AppTheme.Dialog.MusikeTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
     </style>
 </resources>

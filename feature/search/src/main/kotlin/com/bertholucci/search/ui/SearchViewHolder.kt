@@ -14,5 +14,6 @@ class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         binding.tvArtist.text = data.artist
         binding.tvTitle.text = data.name
         binding.ivMusic.loadFromUrl(data.image.first().image)
+        binding.tvListeners.text = data.listeners
     }
 }

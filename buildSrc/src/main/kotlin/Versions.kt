@@ -18,6 +18,7 @@ object SupportVersions {
     const val coil_version = "1.4.0"
     const val lottie_version = "4.2.0"
     const val shimmer_version = "0.5.0"
+    const val swipe_refresh_layout = "1.1.0"
 }
 
 object NetworkVersions {

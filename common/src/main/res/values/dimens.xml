@@ -30,6 +30,7 @@
 
     <dimen name="little_radius">4dp</dimen>
     <dimen name="small_radius">8dp</dimen>
+    <dimen name="medium_radius">12dp</dimen>
 
     <dimen name="music_image_size">50dp</dimen>
 </resources>

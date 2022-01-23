@@ -61,7 +61,7 @@
         android:id="@+id/swipe"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/default_margin"
+        android:layout_marginTop="@dimen/medium_extra_margin"
         android:backgroundTint="@color/color_dark_blue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guide_end"

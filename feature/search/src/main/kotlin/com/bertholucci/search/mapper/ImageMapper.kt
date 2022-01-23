@@ -7,10 +7,7 @@ import com.bertholucci.search.model.Image
 class ImageMapper : BaseMapper<Image, ImageDomain> {
 
     override fun mapFromDomain(domain: ImageDomain): Image {
-        return Image(
-            image = domain.image,
-            size = domain.size
-        )
+        return Image(image = domain.image)
     }
 
     override fun mapToDomain(model: Image): ImageDomain {

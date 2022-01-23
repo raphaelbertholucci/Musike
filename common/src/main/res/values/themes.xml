@@ -10,11 +10,22 @@
     <style name="Title">
         <item name="android:fontFamily">@font/montserrat_semibold</item>
         <item name="android:textColor">@color/color_white</item>
+    </style>
+
+    <style name="Title.Medium">
+        <item name="android:textSize">@dimen/medium_text</item>
+    </style>
+
+    <style name="Title.Big">
+        <item name="android:textSize">@dimen/extra_medium_text</item>
+    </style>
+
+    <style name="Title.SingleLine">
         <item name="android:maxLines">1</item>
         <item name="android:ellipsize">end</item>
     </style>
 
-    <style name="Title.Yellow">
+    <style name="Title.Turquoise">
         <item name="android:textColor">@color/color_yellow</item>
     </style>
 

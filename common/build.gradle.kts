@@ -1,8 +1,6 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
 }
 
 android {
@@ -23,4 +21,6 @@ dependencies {
     api(SupportDependencies.material)
     api(SupportDependencies.app_compat)
     api(SupportDependencies.constraint)
+    api(SupportDependencies.navigation)
+    api(SupportDependencies.navigation_fragment)
 }

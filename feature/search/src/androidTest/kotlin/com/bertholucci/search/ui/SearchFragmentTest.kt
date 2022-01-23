@@ -7,7 +7,7 @@ import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
 
 @RunWith(AndroidJUnit4::class)
-class SearchActivityTest {
+class SearchFragmentTest {
 
     @After
     fun tearDown() {

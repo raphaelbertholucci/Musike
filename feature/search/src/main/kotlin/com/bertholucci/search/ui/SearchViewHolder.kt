@@ -7,7 +7,10 @@ import com.bertholucci.search.databinding.SearchItemMusicBinding
 import com.bertholucci.search.extensions.loadFromUrl
 import com.bertholucci.search.model.Music
 
-class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+class SearchViewHolder(
+    itemView: View,
+    var onClick: ((Music) -> Unit)? = null
+) : RecyclerView.ViewHolder(itemView) {
 
     private val binding = SearchItemMusicBinding.bind(itemView)
 
@@ -19,6 +22,10 @@ class SearchViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         when {
             data.image.isNotEmpty() -> binding.ivMusic.loadFromUrl(data.image.first().image)
             else -> binding.ivMusic.setImageResource(R.drawable.img_music_placeholder)
+        }
+
+        itemView.setOnClickListener {
+            onClick?.invoke(data)
         }
     }
 }

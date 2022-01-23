@@ -14,6 +14,7 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewTypeItem = 0
     private val viewTypeLoading = 1
 
+    var onClick: ((Music) -> Unit)? = null
     private val list: MutableList<Music> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
@@ -29,7 +30,8 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         return if (viewType == viewTypeItem) {
             SearchViewHolder(
                 itemView = LayoutInflater.from(parent.context)
-                    .inflate(R.layout.search_item_music, parent, false)
+                    .inflate(R.layout.search_item_music, parent, false),
+                onClick = onClick
             )
         } else {
             LoadingViewHolder(

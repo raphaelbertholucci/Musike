@@ -1,12 +1,6 @@
-import com.android.build.api.dsl.LibraryExtension
-import com.android.build.gradle.internal.dsl.BaseAppModuleExtension
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 buildscript {
-//    val properties = java.util.Properties()
-//    file("credentials.properties").withInputStream { properties.load(it) }
-//    ext.apiKey = properties.getProperty('api.key')
-
     repositories {
         google()
         mavenCentral()

@@ -4,11 +4,11 @@
 
     <application>
         <activity
-            android:name=".ui.SearchActivity"
+            android:name=".ui.HomeActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustNothing">
             <intent-filter>
-                <action android:name="${applicationId}.SEARCH" />
+                <action android:name="${applicationId}.HOME" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

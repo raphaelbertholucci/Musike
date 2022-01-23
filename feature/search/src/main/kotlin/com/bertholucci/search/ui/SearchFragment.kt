@@ -3,36 +3,41 @@ package com.bertholucci.search.ui
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
+import androidx.navigation.NavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bertholucci.common.base.BaseActivity
+import com.bertholucci.common.base.BaseFragment
+import com.bertholucci.common.extensions.navProvider
+import com.bertholucci.common.extensions.navigateWithAnimation
 import com.bertholucci.common.helpers.EndlessScrollListener
 import com.bertholucci.common.helpers.NetworkHelper.hasConnection
 import com.bertholucci.common.helpers.fold
 import com.bertholucci.search.R
-import com.bertholucci.search.databinding.SearchActivityBinding
+import com.bertholucci.search.databinding.SearchFragmentBinding
 import com.bertholucci.search.model.Music
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class SearchActivity : BaseActivity<SearchActivityBinding>() {
+class SearchFragment : BaseFragment<SearchFragmentBinding>() {
 
+    private val navController: NavController by navProvider()
     private val viewModel: SearchViewModel by viewModel()
 
     private val adapter = SearchAdapter()
     private lateinit var listener: EndlessScrollListener
 
-    override fun getViewBinding() = SearchActivityBinding.inflate(LayoutInflater.from(this))
+    override fun getViewBinding() = SearchFragmentBinding.inflate(LayoutInflater.from(context))
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         addObservers()
         addListeners()
         setupUI()
     }
 
     private fun addObservers() {
-        viewModel.tracks.observe(this) { response ->
+        viewModel.tracks.observe(viewLifecycleOwner) { response ->
             binding.swipe.isRefreshing = false
             response.fold(
                 error = ::handleError,
@@ -74,7 +79,7 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
 
     private fun handleError(throwable: Throwable) {
         Log.i("ERROR", throwable.message, throwable)
-        if (hasConnection(this).not())
+        if (hasConnection(context).not())
             binding.error.tvError.setText(R.string.common_error_internet)
         display(error = true)
         binding.rvTracks.smoothScrollToPosition(0)
@@ -104,7 +109,7 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
         binding.tvSort.setOnClickListener {
             SearchPopularityDialog(onSelectOption = { isCrescent ->
                 viewModel.updatePopularityChoice(isCrescent)
-            }).show(supportFragmentManager, "POPULARITY_DIALOG")
+            }).show(childFragmentManager, "POPULARITY_DIALOG")
         }
     }
 
@@ -129,6 +134,9 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
 
     private fun setupUI() {
         listener = setupEndlessScroll()
+        adapter.onClick = {
+            navController.navigateWithAnimation(SearchFragmentDirections.toMusicDetails(it))
+        }
         binding.rvTracks.adapter = adapter
         binding.rvTracks.addOnScrollListener(listener)
     }

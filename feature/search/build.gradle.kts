@@ -3,6 +3,7 @@ plugins {
     id("kotlin-android")
     id("kotlin-kapt")
     id("kotlin-parcelize")
+    id("androidx.navigation.safeargs")
 }
 
 android {
@@ -34,6 +35,7 @@ dependencies {
     implementation(SupportDependencies.coil)
     implementation(SupportDependencies.shimmer)
     implementation(SupportDependencies.swipe_refresh)
+    implementation(SupportDependencies.lottie)
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
 

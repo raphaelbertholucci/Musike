@@ -43,7 +43,7 @@ class MainActivityRobot : Setup<MainActivityRobotExecute, MainActivityRobotCheck
     override fun checkCreator() = MainActivityRobotCheck()
 
     override fun launch() {
-        ActivityScenario.launch(SearchActivity::class.java)
+        ActivityScenario.launch(SearchFragment::class.java)
     }
 
     fun mockTracks() {

@@ -9,7 +9,6 @@ import com.bertholucci.search.model.Music
 
 class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var isLoading = false
     var isFullyLoaded = false
 
     private val viewTypeItem = 0

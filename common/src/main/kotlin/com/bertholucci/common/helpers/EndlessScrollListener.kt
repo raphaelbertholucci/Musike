@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 abstract class EndlessScrollListener(private val layoutManager: LinearLayoutManager) :
     RecyclerView.OnScrollListener() {
 
+    private var page = 0
     private var loading = true
-    private var mPage = 1
     private var firstVisibleItem = 0
     private var visibleItemCount = 0
     private var totalItemCount = 0
@@ -24,12 +24,16 @@ abstract class EndlessScrollListener(private val layoutManager: LinearLayoutMana
                 previousTotal = totalItemCount
             }
             if (!loading && (totalItemCount) <= (firstVisibleItem + visibleItemCount)) {
-                mPage++
+                page++
+                onLoadMore(page)
                 loading = true
-                onLoadMore(mPage, totalItemCount)
             }
         }
     }
 
-    abstract fun onLoadMore(page: Int, totalItemCount: Int)
+    fun reset() {
+        previousTotal = 0
+    }
+
+    abstract fun onLoadMore(page: Int)
 }

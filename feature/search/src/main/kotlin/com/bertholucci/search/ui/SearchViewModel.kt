@@ -25,6 +25,7 @@ class SearchViewModel(private val getMusicByName: GetMusicByName) : ViewModel() 
         get() = _tracks
 
     fun getTracksByName(name: String, page: Int = START_PAGE) {
+        this.page = page
         getMusicByName(Pair(first = name, second = page))
             .onStart { _tracks.value = Response.Loading(true) }
             .onCompletion { _tracks.value = Response.Loading(false) }

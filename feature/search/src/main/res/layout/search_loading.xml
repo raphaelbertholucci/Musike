@@ -34,6 +34,10 @@
 
         <include layout="@layout/search_loading_placeholder_item" />
 
+        <include layout="@layout/search_loading_placeholder_item" />
+
+        <include layout="@layout/search_loading_placeholder_item" />
+
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </com.facebook.shimmer.ShimmerFrameLayout>

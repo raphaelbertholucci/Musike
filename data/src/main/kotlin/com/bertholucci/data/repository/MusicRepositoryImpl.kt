@@ -13,18 +13,14 @@ class MusicRepositoryImpl(private val api: MusikeApi) : MusicRepository {
 
     override fun getTracksByName(track: String, page: Int): Flow<List<MusicDomain>> {
         return flow {
-            delay(2000)
-            emit(
-                map(
-                    api.getTracksByName(
-                        method = "track.search",
-                        format = "json",
-                        limit = "20",
-                        track = track,
-                        page = page
-                    ).results.matches.tracks
-                )
-            )
+            val response = api.getTracksByName(
+                method = "track.search",
+                format = "json",
+                limit = "20",
+                track = track,
+                page = page
+            ).results.matches.tracks
+            emit(map(response))
         }
     }
 

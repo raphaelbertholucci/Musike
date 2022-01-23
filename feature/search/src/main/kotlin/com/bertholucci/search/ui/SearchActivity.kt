@@ -18,6 +18,7 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
     private val viewModel: SearchViewModel by viewModel()
 
     private val adapter = SearchAdapter()
+    private lateinit var listener: EndlessScrollListener
 
     override fun getViewBinding() = SearchActivityBinding.inflate(LayoutInflater.from(this))
 
@@ -39,25 +40,27 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
     }
 
     private fun handleSuccess(list: List<Music>) {
-        adapter.isLoading = false
         when {
-            list.isEmpty() && viewModel.isFirstPage() -> {
-                display(empty = true)
+            list.isEmpty() -> {
+                setupUIWithEmptyList()
             }
             viewModel.isFirstPage() && list.size < 20 -> {
                 adapter.isFullyLoaded = true
                 display(content = true)
             }
-            viewModel.isFirstPage() && list.size == 20 -> {
-                adapter.isFullyLoaded = false
-                display(content = true)
-            }
-            viewModel.isFirstPage().not() -> {
+            else -> {
                 adapter.isFullyLoaded = false
                 display(content = true)
             }
         }
         adapter.updateList(list, viewModel.page)
+    }
+
+    private fun setupUIWithEmptyList() {
+        when {
+            viewModel.isFirstPage() -> display(empty = true)
+            else -> adapter.isFullyLoaded = true
+        }
     }
 
     private fun handleLoading(loading: Boolean) {
@@ -88,26 +91,25 @@ class SearchActivity : BaseActivity<SearchActivityBinding>() {
             it?.let { text ->
                 if (text.length > 3) {
                     viewModel.getTracksByName(text.toString())
+                    listener.reset()
                 }
             }
         }
     }
 
-    private fun setupEndlessScroll(layoutManager: LinearLayoutManager) {
-        val endlessScrollListener = object : EndlessScrollListener(layoutManager) {
-            override fun onLoadMore(page: Int, totalItemCount: Int) {
-                adapter.isLoading = true
+    private fun setupEndlessScroll(): EndlessScrollListener {
+        return object :
+            EndlessScrollListener(binding.rvTracks.layoutManager as LinearLayoutManager) {
+            override fun onLoadMore(page: Int) {
                 viewModel.updatePage(page)
                 viewModel.getTracksByName(binding.etSearch.text.toString(), page)
             }
         }
-        binding.rvTracks.addOnScrollListener(endlessScrollListener)
     }
 
     private fun setupUI() {
-        val layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.rvTracks.layoutManager = layoutManager
+        listener = setupEndlessScroll()
         binding.rvTracks.adapter = adapter
-        setupEndlessScroll(layoutManager)
+        binding.rvTracks.addOnScrollListener(listener)
     }
 }

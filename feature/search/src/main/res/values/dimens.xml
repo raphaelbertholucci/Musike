@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="loading_size">40dp</dimen>
-    <dimen name="music_details_animation_size">100dp</dimen>
+    <dimen name="music_details_animation_size">120dp</dimen>
 </resources>

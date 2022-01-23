@@ -26,7 +26,7 @@
     </style>
 
     <style name="Title.Turquoise">
-        <item name="android:textColor">@color/color_yellow</item>
+        <item name="android:textColor">@color/color_turquoise</item>
     </style>
 
     <style name="Body">

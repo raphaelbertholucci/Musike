@@ -1,7 +1,5 @@
 package com.bertholucci.common.helpers
 
-import androidx.lifecycle.MutableLiveData
-
 sealed class Response<out V> {
     data class Success<out V>(val value: V) : Response<V>()
     data class Failure(val error: Throwable) : Response<Nothing>()
@@ -27,12 +25,4 @@ inline fun <V, A> Response<V>.fold(
     is Response.Failure -> error(this.error)
     is Response.Success -> success(this.value)
     is Response.Loading -> loading(this.loading)
-}
-
-fun <V> MutableLiveData<Response<V>>.showLoading() {
-    value = Response.Loading(true)
-}
-
-fun <V> MutableLiveData<Response<V>>.hideLoading() {
-    value = Response.Loading(false)
 }

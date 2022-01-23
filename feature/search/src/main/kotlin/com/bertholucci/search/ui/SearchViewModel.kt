@@ -5,8 +5,12 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bertholucci.common.extensions.defaultValue
+import com.bertholucci.common.extensions.failure
+import com.bertholucci.common.extensions.hideLoading
+import com.bertholucci.common.extensions.showLoading
+import com.bertholucci.common.extensions.success
 import com.bertholucci.common.helpers.Response
-import com.bertholucci.domain.interactor.GetMusicByName
+import com.bertholucci.domain.interactor.GetTracksByName
 import com.bertholucci.domain.model.MusicDomain
 import com.bertholucci.search.mapper.MusicMapper
 import com.bertholucci.search.model.Music
@@ -18,7 +22,7 @@ import kotlinx.coroutines.flow.onStart
 
 const val START_PAGE = 0
 
-class SearchViewModel(private val getMusicByName: GetMusicByName) : ViewModel() {
+class SearchViewModel(private val getTracksByName: GetTracksByName) : ViewModel() {
 
     var page = MutableLiveData<Int>().defaultValue(START_PAGE)
     var popularityChoice = MutableLiveData<Boolean?>()
@@ -29,11 +33,11 @@ class SearchViewModel(private val getMusicByName: GetMusicByName) : ViewModel() 
 
     fun getTracksByName(name: String, page: Int = START_PAGE) {
         this.page.value = page
-        getMusicByName(Pair(first = name, second = page))
-            .onStart { _tracks.value = Response.Loading(true) }
-            .onCompletion { _tracks.value = Response.Loading(false) }
-            .map { _tracks.value = Response.Success(MusicMapper().mapFromDomainList(getList(it))) }
-            .catch { _tracks.value = Response.Failure(it) }
+        getTracksByName(Pair(first = name, second = page))
+            .onStart { _tracks.showLoading() }
+            .onCompletion { _tracks.hideLoading() }
+            .map { _tracks.success(MusicMapper().mapFromDomainList(getList(it))) }
+            .catch { _tracks.failure(it) }
             .launchIn(viewModelScope)
     }
 

@@ -5,7 +5,7 @@ import com.bertholucci.domain.model.MusicDomain
 import com.bertholucci.domain.repository.MusicRepository
 import kotlinx.coroutines.flow.Flow
 
-class GetMusicByName(private val repository: MusicRepository) :
+class GetTracksByName(private val repository: MusicRepository) :
     UseCase<Pair<String, Int>, List<MusicDomain>?>() {
 
     override fun executeUseCase(requestValues: Pair<String, Int>): Flow<List<MusicDomain>?> {

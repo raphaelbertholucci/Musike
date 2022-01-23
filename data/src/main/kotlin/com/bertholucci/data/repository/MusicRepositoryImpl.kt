@@ -19,7 +19,7 @@ class MusicRepositoryImpl(private val api: MusikeApi) : MusicRepository {
                 limit = "20",
                 track = track,
                 page = page
-            ).results.matches.tracks
+            ).getTracks()
             emit(map(response))
         }
     }

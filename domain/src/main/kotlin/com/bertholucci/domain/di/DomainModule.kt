@@ -1,8 +1,8 @@
 package com.bertholucci.domain.di
 
-import com.bertholucci.domain.interactor.GetMusicByName
+import com.bertholucci.domain.interactor.GetTracksByName
 import org.koin.dsl.module
 
 val domainModule = module {
-    factory { GetMusicByName(repository = get()) }
+    factory { GetTracksByName(repository = get()) }
 }

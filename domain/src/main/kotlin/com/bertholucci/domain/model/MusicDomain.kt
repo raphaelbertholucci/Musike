@@ -1,6 +1,6 @@
 package com.bertholucci.domain.model
 
-class MusicDomain(
+data class MusicDomain(
     val name: String = "",
     val artist: String = "",
     val listeners: String = "",
@@ -8,7 +8,7 @@ class MusicDomain(
     val image: List<ImageDomain> = emptyList()
 )
 
-class ImageDomain(
+data class ImageDomain(
     val image: String = "",
     val size: String = ""
 )

@@ -41,6 +41,7 @@ dependencies {
     androidTestImplementation(TestDependencies.junit_instrumentation)
     androidTestImplementation(TestDependencies.mockk_android)
     androidTestImplementation(TestDependencies.test_core)
+    androidTestImplementation(TestDependencies.kotlin_test)
     testImplementation(TestDependencies.junit)
     testImplementation(TestDependencies.mockk)
     testImplementation(TestDependencies.coroutines_test)

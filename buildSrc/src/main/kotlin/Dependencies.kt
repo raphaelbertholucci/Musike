@@ -61,4 +61,5 @@ object TestDependencies {
     val coroutines_test by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-test:${TestVersions.coroutines_test}" }
     val arch by lazy { "androidx.arch.core:core-testing:${TestVersions.arch}" }
     val test_core by lazy { "androidx.test:core:${TestVersions.test_core}" }
+    val kotlin_test by lazy { "org.jetbrains.kotlin:kotlin-test:${AndroidVersions.kotlin}" }
 }

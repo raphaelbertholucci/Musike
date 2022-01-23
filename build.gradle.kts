@@ -14,7 +14,6 @@ buildscript {
         classpath(AndroidDependencies.navigationSafeArgs)
         classpath(AndroidDependencies.firebasePerf)
         classpath(AndroidDependencies.dependencyUpdate)
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10-RC")
     }
 }
 

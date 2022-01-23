@@ -1,5 +1,6 @@
 package com.bertholucci.search.ui
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -58,5 +59,12 @@ class SearchViewModel(private val getTracksByName: GetTracksByName) : ViewModel(
 
     fun updatePopularityChoice(isCrescent: Boolean?) {
         popularityChoice.value = isCrescent
+    }
+
+    @VisibleForTesting
+    fun getTracksByNameTest(name: String, page: Int = START_PAGE) {
+        getTracksByName(Pair(first = name, second = page))
+            .map { _tracks.success(MusicMapper().mapFromDomainList(getList(it))) }
+            .launchIn(viewModelScope)
     }
 }

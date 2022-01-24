@@ -9,11 +9,6 @@ interface Setup<out EXECUTE : Execute<CHECK>, out CHECK : Check> {
         launch()
         return executeCreator().apply(func)
     }
-
-    infix fun check(func: CHECK.() -> Unit): CHECK {
-        launch()
-        return checkCreator().apply(func)
-    }
 }
 
 interface Execute<out CHECK : Check> {

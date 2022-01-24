@@ -1,9 +1,7 @@
 object AndroidVersions {
     const val gradle = "7.0.4"
     const val kotlin = "1.5.31"
-    const val google_services = "4.3.10"
     const val navigation_safe_args = "2.3.5"
-    const val firebase_perf = "1.4.0"
     const val dependency_updates = "0.41.0"
 }
 
@@ -35,11 +33,6 @@ object DependencyInjectionVersions {
 
 object DatabaseVersions {
     const val room_version = "2.3.0"
-}
-
-object PreferencesVersions {
-    const val datastore_version = "1.0.0"
-    const val secure_shared_preferences_version = "1.0.0"
 }
 
 object AsyncVersions {

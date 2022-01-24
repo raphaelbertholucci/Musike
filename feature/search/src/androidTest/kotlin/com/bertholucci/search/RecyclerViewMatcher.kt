@@ -9,9 +9,6 @@ import org.hamcrest.TypeSafeMatcher
 
 class RecyclerViewMatcher(private val id: Int, private val parentId: Int? = null) {
 
-    fun atPosition(position: Int): Matcher<View> =
-        atPositionOnView(position, -1)
-
     fun atPositionOnView(position: Int, targetViewId: Int): Matcher<View> {
         return object : TypeSafeMatcher<View>() {
             private var childView: View? = null

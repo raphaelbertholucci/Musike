@@ -1,7 +1,6 @@
 package com.bertholucci.data.database
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -9,9 +8,6 @@ import com.bertholucci.data.model.TrackEntity
 
 @Dao
 interface MusikeDao {
-
-    @Query("SELECT * FROM tracks")
-    suspend fun getTracks(): List<TrackEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertTrack(track: TrackEntity)

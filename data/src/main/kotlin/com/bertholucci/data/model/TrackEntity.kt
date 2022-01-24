@@ -13,10 +13,3 @@ data class TrackEntity(
     val url: String,
     val image: String
 )
-
-@Entity(tableName = "images")
-class ImageEntity(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int = 0,
-    val image: String
-)

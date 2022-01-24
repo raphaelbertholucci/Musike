@@ -34,8 +34,6 @@ dependencies {
     implementation(DatabaseDependencies.room_ktx)
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
-    implementation(PreferencesDependencies.datastore)
-    implementation(PreferencesDependencies.secure_shared_preferences)
 
     kapt(DatabaseDependencies.room_compiler)
 

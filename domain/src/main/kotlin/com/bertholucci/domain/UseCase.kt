@@ -9,6 +9,4 @@ abstract class UseCase<in REQUEST, RESPONSE> {
     }
 
     abstract fun executeUseCase(requestValues: REQUEST): Flow<RESPONSE>
-
-    object None
 }

@@ -26,7 +26,7 @@ const val START_PAGE = 0
 class SearchViewModel(private val getTracksByName: GetTracksByName) : ViewModel() {
 
     var page = MutableLiveData<Int>().defaultValue(START_PAGE)
-    var popularityChoice = MutableLiveData<Boolean?>()
+    private var popularityChoice = MutableLiveData<Boolean?>()
 
     private val _tracks = MutableLiveData<Response<List<Track>>>()
     val tracks: LiveData<Response<List<Track>>>

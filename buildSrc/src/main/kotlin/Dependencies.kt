@@ -1,11 +1,9 @@
 object AndroidDependencies {
     val gradle by lazy { "com.android.tools.build:gradle:${AndroidVersions.gradle}" }
     val kotlin by lazy { "org.jetbrains.kotlin:kotlin-gradle-plugin:${AndroidVersions.kotlin}" }
-    val googleServices by lazy { "com.google.gms:google-services:${AndroidVersions.google_services}" }
     val navigationSafeArgs by lazy {
         "androidx.navigation:navigation-safe-args-gradle-plugin:${AndroidVersions.navigation_safe_args}"
     }
-    val firebasePerf by lazy { "com.google.firebase:perf-plugin:${AndroidVersions.firebase_perf}" }
     val dependencyUpdate by lazy { "com.github.ben-manes:gradle-versions-plugin:${AndroidVersions.dependency_updates}" }
 }
 
@@ -42,11 +40,6 @@ object DatabaseDependencies {
     val room by lazy { "androidx.room:room-runtime:${DatabaseVersions.room_version}" }
     val room_ktx by lazy { "androidx.room:room-ktx:${DatabaseVersions.room_version}" }
     val room_compiler by lazy { "androidx.room:room-compiler:${DatabaseVersions.room_version}" }
-}
-
-object PreferencesDependencies {
-    val datastore by lazy { "androidx.security:security-crypto:${PreferencesVersions.datastore_version}" }
-    val secure_shared_preferences by lazy { "androidx.datastore:datastore-preferences:${PreferencesVersions.secure_shared_preferences_version}" }
 }
 
 object AsyncDependencies {

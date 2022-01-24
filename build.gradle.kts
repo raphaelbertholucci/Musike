@@ -10,9 +10,7 @@ buildscript {
     dependencies {
         classpath(AndroidDependencies.gradle)
         classpath(AndroidDependencies.kotlin)
-        classpath(AndroidDependencies.googleServices)
         classpath(AndroidDependencies.navigationSafeArgs)
-        classpath(AndroidDependencies.firebasePerf)
         classpath(AndroidDependencies.dependencyUpdate)
     }
 }

@@ -11,9 +11,7 @@ import androidx.navigation.fragment.findNavController
 import com.bertholucci.common.R
 import kotlin.reflect.KProperty
 
-fun AppCompatActivity.navProvider(@IdRes idRes: Int) = NavControllerProvider(idRes)
-
-fun Fragment.navProvider() = NavControllerProvider()
+fun navProvider() = NavControllerProvider()
 
 class NavControllerProvider(@IdRes private val idRes: Int = 0) {
 

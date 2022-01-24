@@ -14,7 +14,7 @@ class LauncherActivity : BaseActivity<ActivitySplashBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Handler(Looper.getMainLooper()).postDelayed(::navigateToHome, 4000)
+        Handler(Looper.getMainLooper()).postDelayed(::navigateToHome, 2500)
     }
 
     private fun navigateToHome() {

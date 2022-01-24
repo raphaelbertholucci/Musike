@@ -49,13 +49,19 @@ class TrackDetailsViewModel(
 
     private fun insertTrackIntoDB(track: Track) {
         insertTrackIntoDatabase(MusicMapper().mapToDomain(track))
-            .map { isFavorite.value = true }
+            .map {
+                isFavorite.value = true
+                updateTrack(true)
+            }
             .launchIn(viewModelScope)
     }
 
     private fun removeTrackFromDB(track: Track) {
         removeTrackFromDatabase(Pair(track.name, track.artist))
-            .map { isFavorite.value = false }
+            .map {
+                isFavorite.value = false
+                updateTrack(false)
+            }
             .launchIn(viewModelScope)
     }
 }

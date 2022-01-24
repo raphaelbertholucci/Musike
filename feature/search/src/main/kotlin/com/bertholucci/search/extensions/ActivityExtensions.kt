@@ -11,7 +11,7 @@ import com.google.android.material.snackbar.Snackbar
 fun Activity.showSnack(
     @StringRes resId: Int,
     view: View? = getView(),
-    @ColorRes colorId: Int = R.color.color_turquoise
+    @ColorRes colorId: Int = R.color.color_white
 ) {
     val snackBar = Snackbar.make(view ?: getView(), resId, Snackbar.LENGTH_LONG).apply {
         this.view.setBackgroundColor(ContextCompat.getColor(this@showSnack, colorId))

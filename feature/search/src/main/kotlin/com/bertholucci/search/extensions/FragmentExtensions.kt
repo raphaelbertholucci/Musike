@@ -9,7 +9,7 @@ import com.bertholucci.search.R
 fun Fragment.showSnack(
     view: View? = activity?.getView(),
     @StringRes resId: Int,
-    @ColorRes colorId: Int = R.color.color_turquoise
+    @ColorRes colorId: Int = R.color.color_white
 ) {
     activity?.showSnack(view = view, resId = resId, colorId = colorId)
 }

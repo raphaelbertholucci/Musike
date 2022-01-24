@@ -47,4 +47,7 @@ dependencies {
     testImplementation(TestDependencies.mockk)
     testImplementation(TestDependencies.coroutines_test)
     testImplementation(TestDependencies.arch)
+    debugImplementation(TestDependencies.fragment_testing) {
+        exclude(group = "androidx.test", module = "core")
+    }
 }

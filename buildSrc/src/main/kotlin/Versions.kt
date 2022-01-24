@@ -53,4 +53,5 @@ object TestVersions {
     const val coroutines_test = "1.5.1"
     const val arch = "2.1.0"
     const val test_core = "1.4.0"
+    const val fragment_version = "1.3.6"
 }

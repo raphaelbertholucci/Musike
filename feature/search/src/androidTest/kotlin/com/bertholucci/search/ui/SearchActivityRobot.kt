@@ -1,7 +1,7 @@
 package com.bertholucci.search.ui
 
 import androidx.appcompat.widget.AppCompatTextView
-import androidx.test.core.app.ActivityScenario
+import androidx.fragment.app.testing.FragmentScenario
 import com.bertholucci.domain.interactor.GetTracksByName
 import com.bertholucci.domain.model.ImageDomain
 import com.bertholucci.domain.model.TrackDomain
@@ -43,7 +43,11 @@ class MainActivityRobot : Setup<MainActivityRobotExecute, MainActivityRobotCheck
     override fun checkCreator() = MainActivityRobotCheck()
 
     override fun launch() {
-        ActivityScenario.launch(SearchFragment::class.java)
+        FragmentScenario.launchInContainer(
+            fragmentClass = SearchFragment::class.java,
+            fragmentArgs = null,
+            themeResId = R.style.Theme_Musike
+        )
     }
 
     fun mockTracks() {

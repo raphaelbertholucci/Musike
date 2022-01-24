@@ -6,7 +6,7 @@ An app to see information about songs and save the ones that you love the most!
 
 ## Getting Started
 Before you try to run this project you should go to [Last.FM](https://www.last.fm/api) to create your account and generate you own api key.
-  * Place you API_KEY inside build.gradle.kts inside the data module.
+  * Place you API_KEY in build.gradle.kts inside the data module.
 
 ## Multi Module Project Structure
 The multi module project structure its being used to de-couple the main app of its features.

@@ -23,6 +23,7 @@ object SupportDependencies {
     val lottie by lazy { "com.airbnb.android:lottie:${SupportVersions.lottie_version}" }
     val shimmer by lazy { "com.facebook.shimmer:shimmer:${SupportVersions.shimmer_version}" }
     val swipe_refresh by lazy { "androidx.swiperefreshlayout:swiperefreshlayout:${SupportVersions.swipe_refresh_layout}" }
+    val splash by lazy { "androidx.core:core-splashscreen:${SupportVersions.splash}" }
 }
 
 object NetworkDependencies {

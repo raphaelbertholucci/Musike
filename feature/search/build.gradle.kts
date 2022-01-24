@@ -35,6 +35,7 @@ dependencies {
     implementation(SupportDependencies.shimmer)
     implementation(SupportDependencies.swipe_refresh)
     implementation(SupportDependencies.lottie)
+    implementation(SupportDependencies.splash)
     implementation(DependencyInjectionDependencies.koin)
     implementation(DependencyInjectionDependencies.koin_core)
 

@@ -19,6 +19,7 @@ object SupportVersions {
     const val lottie_version = "4.2.0"
     const val shimmer_version = "0.5.0"
     const val swipe_refresh_layout = "1.1.0"
+    const val splash = "1.0.0-alpha02"
 }
 
 object NetworkVersions {

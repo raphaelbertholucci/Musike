@@ -1,5 +1,6 @@
 package com.bertholucci.data
 
+import com.bertholucci.data.database.MusikeDao
 import helpers.BaseTest
 import com.bertholucci.data.mapper.TrackResponseMapper
 import com.bertholucci.data.model.MusicMatches
@@ -21,8 +22,11 @@ class TrackRepositoryImplTest : BaseTest<TrackRepositoryImpl>() {
     @RelaxedMockK
     private lateinit var api: MusikeApi
 
+    @RelaxedMockK
+    private lateinit var dao: MusikeDao
+
     override fun init() {
-        agent = TrackRepositoryImpl(api)
+        agent = TrackRepositoryImpl(api, dao)
     }
 
     @Test

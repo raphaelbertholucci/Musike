@@ -1,6 +1,6 @@
 import com.bertholucci.domain.interactor.GetTracksByName
-import com.bertholucci.domain.model.MusicDomain
-import com.bertholucci.domain.repository.MusicRepository
+import com.bertholucci.domain.model.TrackDomain
+import com.bertholucci.domain.repository.TrackRepository
 import helpers.BaseTest
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
@@ -15,7 +15,7 @@ import org.junit.Test
 class GetTracksByNameTest : BaseTest<GetTracksByName>() {
 
     @RelaxedMockK
-    private lateinit var repository: MusicRepository
+    private lateinit var repository: TrackRepository
 
     override fun init() {
         agent = GetTracksByName(repository)
@@ -38,7 +38,7 @@ class GetTracksByNameTest : BaseTest<GetTracksByName>() {
 }
 
 val domainMock = listOf(
-    MusicDomain(
+    TrackDomain(
         name = "Believer",
         artist = "Imagine Dragons",
         listeners = "357290",

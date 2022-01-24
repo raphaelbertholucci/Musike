@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.search.R
-import com.bertholucci.search.model.Music
+import com.bertholucci.search.model.Track
 
 class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -14,11 +14,11 @@ class SearchAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val viewTypeItem = 0
     private val viewTypeLoading = 1
 
-    var onClick: ((Music) -> Unit)? = null
-    private val list: MutableList<Music> = mutableListOf()
+    var onClick: ((Track) -> Unit)? = null
+    private val list: MutableList<Track> = mutableListOf()
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateList(tracks: List<Music>, page: Int?) {
+    fun updateList(tracks: List<Track>, page: Int?) {
         if (page == 0) {
             list.clear()
         }

@@ -4,7 +4,7 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.test.core.app.ActivityScenario
 import com.bertholucci.domain.interactor.GetTracksByName
 import com.bertholucci.domain.model.ImageDomain
-import com.bertholucci.domain.model.MusicDomain
+import com.bertholucci.domain.model.TrackDomain
 import com.bertholucci.search.Check
 import com.bertholucci.search.Execute
 import com.bertholucci.search.R
@@ -103,14 +103,14 @@ class MainActivityRobotCheck : Check {
 }
 
 val mock = listOf(
-    MusicDomain(
+    TrackDomain(
         name = "One More Time",
         artist = "Daft Punk",
         listeners = "1420701",
         url = "https://picsum.photos/200",
         image = listOf(ImageDomain(image = "https://picsum.photos/200", size = ""))
     ),
-    MusicDomain(
+    TrackDomain(
         name = "One Step Closer",
         artist = "Linkin Park",
         listeners = "1138819",

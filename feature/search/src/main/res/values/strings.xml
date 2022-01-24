@@ -15,4 +15,6 @@
     <string name="search_music_details_song">Song</string>
     <string name="search_music_details_artist">Artist</string>
     <string name="search_music_details_listeners">Listeners</string>
+    <string name="search_music_details_saved">Track saved!</string>
+    <string name="search_music_details_removed">Track removed!</string>
 </resources>

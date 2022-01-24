@@ -5,16 +5,16 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bertholucci.search.R
 import com.bertholucci.search.databinding.SearchItemMusicBinding
 import com.bertholucci.search.extensions.loadFromUrl
-import com.bertholucci.search.model.Music
+import com.bertholucci.search.model.Track
 
 class SearchViewHolder(
     itemView: View,
-    var onClick: ((Music) -> Unit)? = null
+    var onClick: ((Track) -> Unit)? = null
 ) : RecyclerView.ViewHolder(itemView) {
 
     private val binding = SearchItemMusicBinding.bind(itemView)
 
-    fun bind(data: Music) {
+    fun bind(data: Track) {
         binding.tvArtist.text = data.artist
         binding.tvTitle.text = data.name
         binding.tvListeners.text = data.listeners

@@ -11,6 +11,6 @@ class ImageMapper : BaseMapper<Image, ImageDomain> {
     }
 
     override fun mapToDomain(model: Image): ImageDomain {
-        throw UnsupportedOperationException("Operation is not supported!")
+        return ImageDomain(image = model.image)
     }
 }

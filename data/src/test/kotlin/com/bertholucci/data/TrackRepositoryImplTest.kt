@@ -1,12 +1,12 @@
 package com.bertholucci.data
 
 import helpers.BaseTest
-import com.bertholucci.data.mapper.MusicResponseMapper
+import com.bertholucci.data.mapper.TrackResponseMapper
 import com.bertholucci.data.model.MusicMatches
 import com.bertholucci.data.model.MusicResponse
 import com.bertholucci.data.model.MusicResults
 import com.bertholucci.data.model.MusicTracks
-import com.bertholucci.data.repository.MusicRepositoryImpl
+import com.bertholucci.data.repository.TrackRepositoryImpl
 import io.mockk.coEvery
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -16,13 +16,13 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 @ExperimentalCoroutinesApi
-class MusicRepositoryImplTest : BaseTest<MusicRepositoryImpl>() {
+class TrackRepositoryImplTest : BaseTest<TrackRepositoryImpl>() {
 
     @RelaxedMockK
     private lateinit var api: MusikeApi
 
     override fun init() {
-        agent = MusicRepositoryImpl(api)
+        agent = TrackRepositoryImpl(api)
     }
 
     @Test
@@ -31,7 +31,7 @@ class MusicRepositoryImplTest : BaseTest<MusicRepositoryImpl>() {
 
         agent.getTracksByName("Believer").collect {
             assertEquals(
-                MusicResponseMapper().mapToDomainList(movieListMock().getTracks()),
+                TrackResponseMapper().mapToDomainList(movieListMock().getTracks()),
                 it
             )
         }

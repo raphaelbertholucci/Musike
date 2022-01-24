@@ -10,3 +10,10 @@ fun ImageView.loadFromUrl(image: String?) {
         placeholder(R.drawable.img_music_placeholder)
     }
 }
+
+fun ImageView.isFavorite(isFavorite: Boolean) {
+    this.setImageResource(
+        if (isFavorite) R.drawable.search_ic_heart_filled
+        else R.drawable.search_ic_heart
+    )
+}

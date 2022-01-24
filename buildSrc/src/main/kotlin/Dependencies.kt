@@ -40,6 +40,7 @@ object DependencyInjectionDependencies {
 object DatabaseDependencies {
     val room by lazy { "androidx.room:room-runtime:${DatabaseVersions.room_version}" }
     val room_ktx by lazy { "androidx.room:room-ktx:${DatabaseVersions.room_version}" }
+    val room_compiler by lazy { "androidx.room:room-compiler:${DatabaseVersions.room_version}" }
 }
 
 object PreferencesDependencies {

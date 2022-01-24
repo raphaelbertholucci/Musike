@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -35,6 +36,8 @@ dependencies {
     implementation(DependencyInjectionDependencies.koin_core)
     implementation(PreferencesDependencies.datastore)
     implementation(PreferencesDependencies.secure_shared_preferences)
+
+    kapt(DatabaseDependencies.room_compiler)
 
     api(TestDependencies.espresso)
     androidTestImplementation(TestDependencies.junit_instrumentation)

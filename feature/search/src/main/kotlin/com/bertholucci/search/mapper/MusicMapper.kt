@@ -1,13 +1,13 @@
 package com.bertholucci.search.mapper
 
 import com.bertholucci.common.base.BaseMapper
-import com.bertholucci.domain.model.MusicDomain
-import com.bertholucci.search.model.Music
+import com.bertholucci.domain.model.TrackDomain
+import com.bertholucci.search.model.Track
 
-class MusicMapper : BaseMapper<Music, MusicDomain> {
+class MusicMapper : BaseMapper<Track, TrackDomain> {
 
-    override fun mapFromDomain(domain: MusicDomain): Music {
-        return Music(
+    override fun mapFromDomain(domain: TrackDomain): Track {
+        return Track(
             name = domain.name,
             artist = domain.artist,
             listeners = domain.listeners,
@@ -16,11 +16,17 @@ class MusicMapper : BaseMapper<Music, MusicDomain> {
         )
     }
 
-    override fun mapToDomain(model: Music): MusicDomain {
-        throw UnsupportedOperationException("Operation is not supported!")
+    override fun mapToDomain(model: Track): TrackDomain {
+        return TrackDomain(
+            name = model.name,
+            artist = model.artist,
+            listeners = model.listeners,
+            url = model.url,
+            image = model.image.map { ImageMapper().mapToDomain(it) }
+        )
     }
 
-    fun mapFromDomainList(list: List<MusicDomain>?) = list?.map {
+    fun mapFromDomainList(list: List<TrackDomain>?) = list?.map {
         mapFromDomain(it)
     } ?: emptyList()
 }

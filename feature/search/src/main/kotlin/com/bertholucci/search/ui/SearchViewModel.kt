@@ -12,9 +12,9 @@ import com.bertholucci.common.extensions.showLoading
 import com.bertholucci.common.extensions.success
 import com.bertholucci.common.helpers.Response
 import com.bertholucci.domain.interactor.GetTracksByName
-import com.bertholucci.domain.model.MusicDomain
+import com.bertholucci.domain.model.TrackDomain
 import com.bertholucci.search.mapper.MusicMapper
-import com.bertholucci.search.model.Music
+import com.bertholucci.search.model.Track
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -28,8 +28,8 @@ class SearchViewModel(private val getTracksByName: GetTracksByName) : ViewModel(
     var page = MutableLiveData<Int>().defaultValue(START_PAGE)
     var popularityChoice = MutableLiveData<Boolean?>()
 
-    private val _tracks = MutableLiveData<Response<List<Music>>>()
-    val tracks: LiveData<Response<List<Music>>>
+    private val _tracks = MutableLiveData<Response<List<Track>>>()
+    val tracks: LiveData<Response<List<Track>>>
         get() = _tracks
 
     fun getTracksByName(name: String, page: Int = START_PAGE) {
@@ -42,7 +42,7 @@ class SearchViewModel(private val getTracksByName: GetTracksByName) : ViewModel(
             .launchIn(viewModelScope)
     }
 
-    private fun getList(it: List<MusicDomain>?) =
+    private fun getList(it: List<TrackDomain>?) =
         popularityChoice.value?.let { isCrescent ->
             if (isCrescent) {
                 it?.sortedBy { music -> music.listeners.toInt() }

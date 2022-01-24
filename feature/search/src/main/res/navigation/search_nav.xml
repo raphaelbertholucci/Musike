@@ -16,11 +16,11 @@
 
     <fragment
         android:id="@+id/fragment_music_details"
-        android:name="com.bertholucci.search.ui.details.MusicDetailsFragment"
+        android:name="com.bertholucci.search.ui.details.TrackDetailsFragment"
         tools:layout="@layout/search_fragment_music_details">
         <argument
-            android:name="music"
-            app:argType="com.bertholucci.search.model.Music" />
+            android:name="track"
+            app:argType="com.bertholucci.search.model.Track" />
     </fragment>
 
 </navigation>

@@ -4,12 +4,13 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Music(
+data class Track(
     val name: String,
     val artist: String,
     val listeners: String,
     val url: String,
-    val image: List<Image>
+    val image: List<Image>,
+    var isFavorite: Boolean = false
 ) : Parcelable
 
 @Parcelize

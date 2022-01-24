@@ -1,6 +1,6 @@
 package com.bertholucci.domain.model
 
-data class MusicDomain(
+data class TrackDomain(
     val name: String = "",
     val artist: String = "",
     val listeners: String = "",

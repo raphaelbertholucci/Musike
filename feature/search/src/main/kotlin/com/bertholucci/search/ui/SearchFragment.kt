@@ -16,7 +16,7 @@ import com.bertholucci.common.helpers.NetworkHelper.hasConnection
 import com.bertholucci.common.helpers.fold
 import com.bertholucci.search.R
 import com.bertholucci.search.databinding.SearchFragmentBinding
-import com.bertholucci.search.model.Music
+import com.bertholucci.search.model.Track
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SearchFragment : BaseFragment<SearchFragmentBinding>() {
@@ -47,7 +47,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
         }
     }
 
-    private fun handleSuccess(list: List<Music>) {
+    private fun handleSuccess(list: List<Track>) {
         when {
             list.isEmpty() -> {
                 setupUIWithEmptyList()

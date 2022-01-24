@@ -1,7 +1,7 @@
 package com.bertholucci.search.ui
 
 import com.bertholucci.domain.interactor.GetTracksByName
-import com.bertholucci.domain.model.MusicDomain
+import com.bertholucci.domain.model.TrackDomain
 import com.bertholucci.search.mapper.MusicMapper
 import com.bertholucci.search.ui.helpers.BaseTest
 import com.bertholucci.search.ui.helpers.success
@@ -38,7 +38,7 @@ class SearchViewModelTest : BaseTest<SearchViewModel>() {
 }
 
 val domainMock = listOf(
-    MusicDomain(
+    TrackDomain(
         name = "Believer",
         artist = "Imagine Dragons",
         listeners = "357290",

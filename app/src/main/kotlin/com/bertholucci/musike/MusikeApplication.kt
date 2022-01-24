@@ -2,6 +2,7 @@ package com.bertholucci.musike
 
 import android.app.Application
 import com.bertholucci.data.di.apiModule
+import com.bertholucci.data.di.databaseModule
 import com.bertholucci.data.di.repositoryModule
 import com.bertholucci.domain.di.domainModule
 import com.bertholucci.search.di.searchModule
@@ -16,7 +17,7 @@ class MusikeApplication : Application() {
         startKoin {
             androidContext(this@MusikeApplication)
             androidLogger()
-            modules(listOf(apiModule, repositoryModule, domainModule, searchModule))
+            modules(listOf(apiModule, repositoryModule, domainModule, searchModule, databaseModule))
         }
     }
 }

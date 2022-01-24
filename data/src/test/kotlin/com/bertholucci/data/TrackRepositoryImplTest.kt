@@ -1,7 +1,6 @@
 package com.bertholucci.data
 
 import com.bertholucci.data.database.MusikeDao
-import helpers.BaseTest
 import com.bertholucci.data.mapper.TrackResponseMapper
 import com.bertholucci.data.model.MusicMatches
 import com.bertholucci.data.model.MusicResponse

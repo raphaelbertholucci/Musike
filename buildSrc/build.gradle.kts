@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.`kotlin-dsl`
-
 plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
@@ -9,9 +7,4 @@ plugins {
 repositories {
     google()
     mavenCentral()
-}
-
-dependencies {
-    implementation("com.android.tools.build:gradle:7.0.4")
-    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.31")
 }

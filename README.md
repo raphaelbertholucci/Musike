@@ -19,7 +19,7 @@ The code is organized using a Multi Module Project Structure with MVVM and some 
   * :white_check_mark: <b>Coroutines</b> with <b>Flow</b> for async tasks
   * :file_folder: <b>Room</b> for local database
   * :writing_hand: <b>Junit</b> with <b>MockK</b> for unit tests
-  * :saxophone: <b>Espresso</b> for instrumentation tests (MovieDetailsActivityTest class)
+  * :saxophone: <b>Espresso</b> for instrumentation tests (SearchFragmentTest class)
   * :lotus_position: <b>Retrofit</b> for REST API calls
   * :boat: <b>Navigation</b> of Jetpack Components
   * :computer: <b>CI Integration </b> with <b>GitHub Actions</b>

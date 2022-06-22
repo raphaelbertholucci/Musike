@@ -5,6 +5,7 @@ object AndroidDependencies {
         "androidx.navigation:navigation-safe-args-gradle-plugin:${AndroidVersions.navigation_safe_args}"
     }
     val dependencyUpdate by lazy { "com.github.ben-manes:gradle-versions-plugin:${AndroidVersions.dependency_updates}" }
+    val detekt by lazy { "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:${AndroidVersions.detekt}" }
 }
 
 object SupportDependencies {

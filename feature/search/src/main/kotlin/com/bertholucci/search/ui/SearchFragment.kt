@@ -41,7 +41,11 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
             binding.swipe.isRefreshing = false
             response.fold(
                 error = ::handleError,
-                loading = ::handleLoading,
+                loading = { loading ->
+                    if (loading && viewModel.isFirstPage()) {
+                        display(loading = true)
+                    }
+                },
                 success = ::handleSuccess
             )
         }
@@ -52,7 +56,7 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
             list.isEmpty() -> {
                 setupUIWithEmptyList()
             }
-            viewModel.isFirstPage() && list.size < 20 -> {
+            viewModel.isFirstPage() && list.size < maximumSize -> {
                 adapter.isFullyLoaded = true
                 display(content = true)
             }
@@ -68,12 +72,6 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
         when {
             viewModel.isFirstPage() -> display(empty = true)
             else -> adapter.isFullyLoaded = true
-        }
-    }
-
-    private fun handleLoading(loading: Boolean) {
-        if (loading && viewModel.isFirstPage()) {
-            display(loading = true)
         }
     }
 
@@ -114,30 +112,32 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
     }
 
     private fun searchTrack(text: String) {
-        if (text.length >= 3) {
-            viewModel.getTracksByName(text)
-            listener.reset()
-        } else {
-            binding.swipe.isRefreshing = false
+        when {
+            text.length >= minimumQuerySize -> {
+                viewModel.getTracksByName(text)
+                listener.reset()
+            }
+            else -> binding.swipe.isRefreshing = false
         }
     }
 
-    private fun setupEndlessScroll(): EndlessScrollListener {
-        return object :
+    private fun setupUI() {
+        listener = object :
             EndlessScrollListener(binding.rvTracks.layoutManager as LinearLayoutManager) {
             override fun onLoadMore(page: Int) {
                 viewModel.updatePage(page)
                 viewModel.getTracksByName(binding.etSearch.text.toString(), page)
             }
         }
-    }
-
-    private fun setupUI() {
-        listener = setupEndlessScroll()
         adapter.onClick = {
             navController.navigateWithAnimation(SearchFragmentDirections.toMusicDetails(it))
         }
         binding.rvTracks.adapter = adapter
         binding.rvTracks.addOnScrollListener(listener)
+    }
+
+    companion object {
+        const val maximumSize = 20
+        const val minimumQuerySize = 3
     }
 }

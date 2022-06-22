@@ -1,8 +1,9 @@
 object AndroidVersions {
     const val gradle = "7.0.4"
-    const val kotlin = "1.5.31"
-    const val navigation_safe_args = "2.3.5"
+    const val kotlin = "1.6.10"
+    const val navigation_safe_args = "2.4.2"
     const val dependency_updates = "0.41.0"
+    const val detekt = "1.19.0"
 }
 
 object SupportVersions {
@@ -28,11 +29,11 @@ object NetworkVersions {
 }
 
 object DependencyInjectionVersions {
-    const val koin_version = "3.1.2"
+    const val koin_version = "3.2.0"
 }
 
 object DatabaseVersions {
-    const val room_version = "2.3.0"
+    const val room_version = "2.4.2"
 }
 
 object AsyncVersions {

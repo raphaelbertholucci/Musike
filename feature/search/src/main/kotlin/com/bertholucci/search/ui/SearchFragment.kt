@@ -114,11 +114,12 @@ class SearchFragment : BaseFragment<SearchFragmentBinding>() {
     }
 
     private fun searchTrack(text: String) {
-        if (text.length >= 3) {
-            viewModel.getTracksByName(text)
-            listener.reset()
-        } else {
-            binding.swipe.isRefreshing = false
+        when {
+            text.length >= 3 -> {
+                viewModel.getTracksByName(text)
+                listener.reset()
+            }
+            else -> binding.swipe.isRefreshing = false
         }
     }
 
